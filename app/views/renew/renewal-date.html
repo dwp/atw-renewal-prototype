@@ -1,0 +1,56 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "have-renewal-date",
+    name: "have-renewal-date",
+    fieldset: {
+      legend: {
+        text: "Do you have your renewal date?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "Your renewal date will be on a letter confirming your Access to Work grant"
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['have-renewal-date'] == 'yes'),
+        conditional: {
+          html: govukDateInput({
+            id: "renewal-date",
+            namePrefix: "renewal-date",
+            fieldset: {
+              legend: {
+                text: "What is your renewal date?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            hint: {
+              text: "For example, " + renewalDateExample
+            },
+            items: [{
+              classes: "govuk-input--width-2",
+              name: "day",
+              value: data['renewal-date-day']
+            }, {
+              classes: "govuk-input--width-2",
+              name: "month",
+              value: data['renewal-date-month']
+            }, {
+              classes: "govuk-input--width-4",
+              name: "year",
+              value: data['renewal-date-year']
+            }]
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['have-renewal-date'] == 'no')
+      }]
+  }) }}
+{% endblock %}
