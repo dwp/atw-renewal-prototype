@@ -1,0 +1,35 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "change-travel",
+    name: "change-travel",
+    fieldset: {
+      legend: {
+        text: "Has your ability to travel to work changed since our last contact with you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['change-travel'] == 'yes'),
+        conditional: {
+          html: govukTextarea({
+            id: "travel",
+            name: "travel",
+            label: {
+              text: "How has your ability to travel to work changed?",
+              classes: "govuk-!-font-weight-bold"
+            },
+            value: data.travel
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['change-travel'] == 'no')
+      }]
+  }) }}
+{% endblock %}

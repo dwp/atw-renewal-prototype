@@ -1,0 +1,35 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "change-impact",
+    name: "change-impact",
+    fieldset: {
+      legend: {
+        text: "Has the way your conditions or disabilities imapct your job changed since our last contact with you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['change-impact'] == 'yes'),
+        conditional: {
+          html: govukTextarea({
+            id: "impact",
+            name: "impact",
+            label: {
+              text: "How do your conditions or disabilities impact your job now?",
+              classes: "govuk-!-font-weight-bold"
+            },
+            value: data.impact
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['change-impact'] == 'no')
+      }]
+  }) }}
+{% endblock %}

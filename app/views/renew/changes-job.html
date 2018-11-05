@@ -2,38 +2,35 @@
 
 {% block question %}
   {{ govukRadios({
-    idPrefix: "have-urn",
-    name: "have-urn",
+    idPrefix: "change-job",
+    name: "change-job",
     fieldset: {
       legend: {
-        text: "Do you have your unique reference number (URN)?",
+        text: "Has your job changed since our last contact with you?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }
     },
-    hint: {
-      text: "Your URN will be on any letter we've sent you about the Access to Work grant you are renewing"
-    },
     items: [{
         value: "yes",
         text: "Yes",
-        checked: (data['have-urn'] == 'yes'),
+        checked: (data['change-job'] == 'yes'),
         conditional: {
           html: govukInput({
-            id: "urn",
-            name: "urn",
-            classes: "govuk-input--width-10",
+            id: "new-job",
+            name: "new-job",
             label: {
-              text: "Unique reference number",
+              text: "What is your new job title?",
               classes: "govuk-!-font-weight-bold"
             },
-            value: data.urn
+            classes: "govuk-!-width-two-thirds",
+            value: data['new-job']
           })
         }
       }, {
         value: "no",
         text: "No",
-        checked: (data['have-urn'] == 'no')
+        checked: (data['change-job'] == 'no')
       }]
   }) }}
 {% endblock %}

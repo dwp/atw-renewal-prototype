@@ -1,0 +1,87 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {% set address %}
+    {% call govukFieldset({
+      legend: {
+        text: "What is your new work address?",
+        classes: "govuk-fieldset__legend--m",
+        isPageHeading: true
+      }
+    }) %}
+
+      {{ govukInput({
+        label: {
+          html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
+        },
+        id: "work-address-line-1",
+        name: "work-address-line-1",
+        value: data['work-address-line-1']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
+        },
+        id: "work-address-line-2",
+        name: "work-address-line-2",
+        value: data['work-address-line-2']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Town or city"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "work-address-town",
+        name: "work-address-town",
+        value: data['work-address-town']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "County"
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "work-address-county",
+        name: "work-address-county",
+        value: data['work-address-county']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Postcode"
+        },
+        classes: "govuk-input--width-10",
+        id: "work-address-postcode",
+        name: "work-address-postcode",
+        value: data['work-address-postcode']
+      }) }}
+
+    {% endcall %}
+  {% endset -%}
+
+  {{ govukRadios({
+    idPrefix: "change-work-address",
+    name: "change-work-address",
+    fieldset: {
+      legend: {
+        text: "Has your work address changed since our last contact with you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['change-work-address'] == 'yes'),
+        conditional: {
+          html: address
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['change-work-address'] == 'no')
+      }]
+  }) }}
+{% endblock %}

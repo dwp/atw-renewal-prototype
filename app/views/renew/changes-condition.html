@@ -1,0 +1,35 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "change-conditions",
+    name: "change-conditions",
+    fieldset: {
+      legend: {
+        text: "Have your conditions or disabilities changed since our last contact with you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['change-conditions'] == 'yes'),
+        conditional: {
+          html: govukTextarea({
+            id: "conditions",
+            name: "conditions",
+            label: {
+              text: "How have your conditions or disabilities changed?",
+              classes: "govuk-label-m govuk-!-font-weight-bold"
+            },
+            value: data.conditions
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['change-conditions'] == 'no')
+      }]
+  }) }}
+{% endblock %}
