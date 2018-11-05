@@ -1,0 +1,38 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "specify-window",
+    name: "specify-window",
+    fieldset: {
+      legend: {
+        text: "Do you want to provide a good time to contact you?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['specify-window'] == 'yes'),
+        conditional: {
+          html: govukInput({
+            id: "contact-window",
+            name: "contact-window",
+            label: {
+              text: "When would you prefer to be contacted?",
+              classes: "govuk-!-font-weight-bold"
+            },
+            hint: {
+              text: "For example, Monday mornings or Thurday afternoons"
+            },
+            value: data['contact-window']
+          })
+        }
+      }, {
+        value: "no",
+        text: "No, you can contact me at anytime",
+        checked: (data['specify-window'] == 'no')
+      }]
+  }) }}
+{% endblock %}

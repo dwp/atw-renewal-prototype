@@ -9,7 +9,8 @@ const questionPages = [
     'urn',
     'renewal-date',
     'changes',
-    'contact'
+    'contact',
+    'contact-window'
 ].map(p => `/renew/${p}`);
 
 router.use((req, res, next) => {
