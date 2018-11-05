@@ -1,0 +1,154 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {% set phone %}
+    {{ govukInput({
+      id: "phone",
+      name: "phone",
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Phone number"
+      },
+      value: data.phone
+    }) }}
+  {% endset -%}
+
+  {% set email %}
+    {{ govukInput({
+      id: "email",
+      name: "email",
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Email address"
+      },
+      value: data.email
+    }) }}
+  {% endset -%}
+  
+  {% set representativePhone %}
+    {{ govukInput({
+      id: "representative-phone",
+      name: "representative-phone",
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Phone number"
+      },
+      value: data['representative-phone']
+    }) }}
+  {% endset -%}
+
+  {% set representativeEmail %}
+    {{ govukInput({
+      id: "representative-email",
+      name: "representative-email",
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Email address"
+      },
+      value: data['representative-email']
+    }) }}
+  {% endset -%}
+
+  {% set yourContactDetails %}
+    {{ govukCheckboxes({
+      idPrefix: "contact-details",
+      name: "contact-details",
+      fieldset: {
+        legend: {
+          text: "How do you want to be contacted?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: "Select as many as you like."
+      },
+      items: [{
+        value: "email",
+        text: "Email",
+        checked: data.email,
+        conditional: {
+          html: email
+        }
+      }, {
+        value: "tel",
+        text: "Phone call",
+        checked: data.phone,
+        conditional: {
+          html: phone
+        }
+      }]
+    }) }}
+  {% endset -%}
+
+  {% set representativeContactDetails %}
+    {{ govukInput({
+      label: {
+        text: "Their name",
+        isPageHeading: true,
+        classes: "govuk-label govuk-!-font-weight-bold"
+      },
+      classes: "govuk-!-width-two-thirds",
+      id: "representative-name",
+      name: "representative-name",
+      value: data['representative-name']
+    }) }}
+
+    {{ govukCheckboxes({
+      idPrefix: "representative-contact-details",
+      name: "representative-contact-details",
+      fieldset: {
+        legend: {
+          text: "How do they want to be contacted?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      hint: {
+        text: "Select as many as you like."
+      },
+      items: [{
+        value: "email",
+        text: "Email",
+        checked: data['representative-email'],
+        conditional: {
+          html: representativeEmail
+        }
+      }, {
+        value: "tel",
+        text: "Phone call",
+        checked: data['representative-phone'],
+        conditional: {
+          html: representativePhone
+        }
+      }]
+    }) }}
+  {% endset -%}
+
+  {{ govukRadios({
+    idPrefix: "contact",
+    name: "contact",
+    fieldset: {
+      legend: {
+        text: "Who do you want to be contacted about your renewal?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    items: [{
+        value: "yourself",
+        text: "Yourself",
+        checked: (data['contact'] == 'yourself'),
+        conditional: {
+          html: yourContactDetails
+        }
+      }, {
+        value: "someone_else",
+        text: "Someone else, who can speak for you",
+        checked: (data['contact'] == 'someone_else'),
+        conditional: {
+          html: representativeContactDetails
+        }
+      }]
+  }) }}
+{% endblock %}

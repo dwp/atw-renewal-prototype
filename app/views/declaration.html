@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {% include 'includes/phase-banner.html' %}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-l">Declaration</h1>
+    
+    <h2 class="govuk-heading-m">By sending this renewal application you agree that:</h2>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the information in this application is correct as far as you know</li>
+      <li>you agree to the <a class="govuk-link">email terms</a></li>
+    </ul>
+    
+    {{ govukWarningText({
+      text: "It might be a criminal offence if you knowingly give false information or don\'t report anything that would affect your grant. For example, if your condition improves or you change where you work.",
+      iconFallbackText: "Warning"
+    }) }}
+
+    {{ govukButton({
+      text: "I agree - send my renewal application",
+      href: "/thank-you"
+    }) }}
+  </div>
+  {% include 'includes/sidebar.html' %}
+</div>
+{% endblock %}

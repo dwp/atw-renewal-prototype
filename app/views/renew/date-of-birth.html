@@ -1,0 +1,31 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukDateInput({
+    id: "dob",
+    namePrefix: "dob",
+    fieldset: {
+      legend: {
+        text: "What is your date of birth?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "For example, 31 3 1980"
+    },
+    items: [{
+      classes: "govuk-input--width-2",
+      name: "day",
+      value: data['dob-day']
+    }, {
+      classes: "govuk-input--width-2",
+      name: "month",
+      value: data['dob-month']
+    }, {
+      classes: "govuk-input--width-4",
+      name: "year",
+      value: data['dob-year']
+    }]
+  }) }}
+{% endblock %}

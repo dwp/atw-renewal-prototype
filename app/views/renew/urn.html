@@ -1,0 +1,38 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukRadios({
+    idPrefix: "have-urn",
+    name: "have-urn",
+    fieldset: {
+      legend: {
+        text: "Do you have your unique reference number (URN)?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--xl"
+      }
+    },
+    hint: {
+      text: "Your URN will be on any letter we've sent you about the Access to Work grant you are renewing"
+    },
+    items: [{
+        value: "yes",
+        text: "Yes",
+        checked: (data['have-urn'] == 'yes'),
+        conditional: {
+          html: govukInput({
+            id: "urn",
+            name: "urn",
+            classes: "govuk-input--width-10",
+            label: {
+              text: "Unique reference number"
+            },
+            value: data.urn
+          })
+        }
+      }, {
+        value: "no",
+        text: "No",
+        checked: (data['have-urn'] == 'no')
+      }]
+  }) }}
+{% endblock %}

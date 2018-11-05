@@ -1,0 +1,15 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukInput({
+    label: {
+      text: "What is your full name?",
+      isPageHeading: true,
+      classes: "govuk-label--xl"
+    },
+    classes: "govuk-!-width-two-thirds",
+    id: "full-name",
+    name: "full-name",
+    value: data['full-name']
+  }) }}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "layout-question.html" %}
+
+{% block question %}
+  {{ govukInput({
+    label: {
+      text: "What is your postcode?",
+      isPageHeading: true,
+      classes: "govuk-label--xl"
+    },
+    classes: "govuk-input--width-10",
+    id: "postcode",
+    name: "postcode",
+    value: data.postcode
+  }) }}
+{% endblock %}

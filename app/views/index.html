@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Benefits",
+        href: "#"
+      },
+      {
+        text: "Carers and disability benefits"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Get help at work if you’re disabled or have a health condition (Access to Work)</h1>
+  
+    <h2 class="govuk-body">Contents</h2>
+    <ol class="govuk-list govuk-!-font-size-16">
+      <li>— <a class="govuk-link">Overview</a></li>
+      <li>— <a class="govuk-link">Eligibility</a></li>
+      <li>— <a class="govuk-link">What you'll get</a></li>
+      <li>— <a class="govuk-link">How it works</a></li>
+      <li>— <a class="govuk-link">Apply</a></li>
+      <li>— Renew</li>
+    </ol>
+  </div>  
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">Renew</h2>
+
+    <p><a class="govuk-link">Check you’re still eligible</a> before you renew.</p>
+
+    <p>You can renew your Access to Work grant online.</p>
+    
+    {{ govukButton({
+      text: "Start now",
+      href: firstQuestion,
+      classes: "govuk-button--start"
+    }) }}
+    
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="border-bottom: 2px solid #005ea5">
+    <h3 class="govuk-heading-s">Related content</h3>
+    <ul class="govuk-list govuk-!-font-size-16">
+      <li><a class="govuk-link">Reasonable adjustments for workers with disabilities or health conditions</a></li>
+      <li><a class="govuk-link">Definition of disability under the Equality Act 2010</a></li>
+      <li><a class="govuk-link">Disability rights</a></li>
+      <li><a class="govuk-link">Looking for work if you're disabled</a></li>
+    </ul>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <p class="govuk-link govuk-!-font-size-16">Explore the topic</p>
+    <ul class="govuk-list govuk-!-font-size-16">
+      <li><a class="govuk-link govuk-!-font-weight-bold">Carers and disability benefits</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Disability equipment and transport</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Work and disabled people</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Recruiting and hiring</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Finding a job</a></li>
+      </ul>
+  </div>
+</div>
+{% endblock %}
