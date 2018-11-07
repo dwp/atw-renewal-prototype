@@ -9,12 +9,12 @@ const questionPages = [
     'urn',
     'renewal-date',
     'changes-condition',
+    'changes-impact',
+    'changes-travel',
     'changes-name',
     'changes-address',
     'changes-job',
     'changes-work-address',
-    'changes-impact',
-    'changes-travel',
     'contact',
     'contact-window'
 ].map(p => `/renew/${p}`);
