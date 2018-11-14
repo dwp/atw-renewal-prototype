@@ -32,6 +32,7 @@ router.use((req, res, next) => {
     res.locals.questionNumber = questionPages.indexOf(req.path) + 1;
     res.locals.totalQuestions = questionPages.length;
     res.locals.renewalDateExample = moment().add(3, 'weeks').format('D M YYYY');
+    res.locals.data.changes = res.locals.data.changes || [];
     if(req.path === '/declaration'){
         res.locals.back = questionPages[questionPages.length - 1];
     } else {
