@@ -64,18 +64,18 @@
         text: "Select as many as you like."
       },
       items: [{
-        value: "email",
-        text: "Email",
-        checked: data.email,
-        conditional: {
-          html: email
-        }
-      }, {
         value: "tel",
         text: "Phone call",
         checked: data.phone,
         conditional: {
           html: phone
+        }
+      }, {
+        value: "email",
+        text: "Email",
+        checked: data.email,
+        conditional: {
+          html: email
         }
       }]
     }) }}
@@ -108,18 +108,18 @@
         text: "Select as many as you like."
       },
       items: [{
-        value: "email",
-        text: "Email",
-        checked: data['representative-email'],
-        conditional: {
-          html: representativeEmail
-        }
-      }, {
         value: "tel",
         text: "Phone call",
         checked: data['representative-phone'],
         conditional: {
           html: representativePhone
+        }
+      }, {
+        value: "email",
+        text: "Email",
+        checked: data['representative-email'],
+        conditional: {
+          html: representativeEmail
         }
       }]
     }) }}

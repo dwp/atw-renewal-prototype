@@ -2,21 +2,29 @@ const express = require('express');
 const router = express.Router();
 const moment = require('moment');
 
+// const questionPages = [
+//     'name',
+//     'date-of-birth',
+//     'postcode',
+//     'urn',
+//     'renewal-date',
+//     'changes-condition',
+//     'changes-impact',
+//     'changes-travel',
+//     'changes-name',
+//     'changes-address',
+//     'changes-job',
+//     'changes-work-address',
+//     'contact',
+//     'contact-window'
+// ].map(p => `/renew/${p}`);
+
 const questionPages = [
     'name',
     'date-of-birth',
-    'postcode',
     'urn',
-    'renewal-date',
-    'changes-condition',
-    'changes-impact',
-    'changes-travel',
-    'changes-name',
-    'changes-address',
-    'changes-job',
-    'changes-work-address',
-    'contact',
-    'contact-window'
+    'changes',
+    'contact'
 ].map(p => `/renew/${p}`);
 
 router.use((req, res, next) => {
