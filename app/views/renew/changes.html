@@ -16,28 +16,36 @@
     },
     items: [{
       value: "name",
-      text: "Your name"
+      text: "Your name",
+      checked: true if 'name' in data.changes
     }, {
       value: "address",
-      text: "Your address"
+      text: "Your address",
+      checked: true if 'address' in data.changes
     }, {
       value: "job",
-      text: "Your job (where you work or what you do)"
+      text: "Your job (where you work or what you do)",
+      checked: true if 'job' in data.changes
     }, {
       value: "work_contact",
-      text: "Your workplace contact"
+      text: "Your workplace contact",
+      checked: true if 'work_contact' in data.changes
     }, {
       value: "support_cost",
-      text: "The cost of your support"
+      text: "The cost of your support",
+      checked: true if 'support_cost' in data.changes
     }, {
       value: "conditions_or_disabilities",
-      text: "Your conditions or disabilities"
+      text: "Your conditions or disabilities",
+      checked: true if 'conditions_or_disabilities' in data.changes
     }, {
       value: "impact",
-      text: "The impact your conditions or disabilities have on your job"
+      text: "The impact your conditions or disabilities have on your job",
+      checked: true if 'impact' in data.changes
     }, {
       value: "travel",
-      text: "Your ability to travel to work"
+      text: "Your ability to travel to work",
+      checked: true if 'travel' in data.changes
     }]
   }) }}
 {% endblock %}

@@ -39,6 +39,17 @@ router.use((req, res, next) => {
     }
     next();
 })
+
+router.post('/renew/urn', (req, res, next) => {
+    res.locals.errors = '';
+    if(res.locals.data['have-urn'] == 'yes' && !res.locals.data.urn.replace(/[\s]/g, '').match(/^1\d{8}$/)) {
+        res.locals.errors = 'urn';
+        res.render('renew/urn');
+    } else {
+        next();
+    }
+})
+
 router.post('*', (req, res) => {
     const nextPage = (questionPages.indexOf(req.path) !== questionPages.length - 1) ? questionPages[questionPages.indexOf(req.path)+1] : '/declaration';
     res.status(302).redirect(nextPage);
