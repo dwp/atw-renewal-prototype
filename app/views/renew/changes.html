@@ -24,7 +24,7 @@
       checked: true if 'address' in data.changes
     }, {
       value: "job",
-      text: "Your job (where you work or what you do)",
+      text: "Your job (where you work, what you do or your working hours)",
       checked: true if 'job' in data.changes
     }, {
       value: "work_contact",
@@ -40,11 +40,15 @@
       checked: true if 'conditions_or_disabilities' in data.changes
     }, {
       value: "impact",
-      text: "The impact your conditions or disabilities have on your job",
+      text: "how your conditions or disabilities affect you at work",
       checked: true if 'impact' in data.changes
     }, {
       value: "travel",
-      text: "Your ability to travel to work",
+      text: "how your conditions or disabilities affect your journey to work",
+      checked: true if 'travel' in data.changes
+    }, {
+      value: "travel_arrangements",
+      text: "Your travel arrangements",
       checked: true if 'travel' in data.changes
     }]
   }) }}
