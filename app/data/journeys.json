@@ -1,0 +1,25 @@
+{
+    "v1" : [
+        "name",
+        "date-of-birth",
+        "urn",
+        "changes",
+        "contact"
+    ],
+    "v2": [
+        "name",
+        "date-of-birth",
+        "postcode",
+        "urn",
+        "renewal-date",
+        "changes-condition",
+        "changes-impact",
+        "changes-travel",
+        "changes-name",
+        "changes-address",
+        "changes-job",
+        "changes-work-address",
+        "contact",
+        "contact-window"
+    ]
+}

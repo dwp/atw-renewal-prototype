@@ -1,47 +1,41 @@
 const express = require('express');
 const router = express.Router();
 const moment = require('moment');
+const fs = require('fs');
+const path = require('path');
 
-// const questionPages = [
-//     'name',
-//     'date-of-birth',
-//     'postcode',
-//     'urn',
-//     'renewal-date',
-//     'changes-condition',
-//     'changes-impact',
-//     'changes-travel',
-//     'changes-name',
-//     'changes-address',
-//     'changes-job',
-//     'changes-work-address',
-//     'contact',
-//     'contact-window'
-// ].map(p => `/renew/${p}`);
+const journeys = require('./data/journeys.json');
+let route = '', journey = '';
 
-const questionPages = [
-    'name',
-    'date-of-birth',
-    'urn',
-    'changes',
-    'contact'
-].map(p => `/renew/${p}`);
+for (let j in journeys) {
+    fs.stat(path.resolve(__dirname, 'views/' + j), function(err, stats) {
+        if (err && err.errno !== 34) {
+            fs.symlinkSync(path.resolve(__dirname, 'views'), path.resolve(__dirname, 'views/' + j), 'dir');
+        }
+    });
+}
 
 router.use((req, res, next) => {
-    res.locals.firstQuestion = questionPages[0];
-    res.locals.questionNumber = questionPages.indexOf(req.path) + 1;
-    res.locals.totalQuestions = questionPages.length;
+    route = req.path.match(/^\/([^/]+)\//) ? req.path.match(/^\/([^/]+)\//)[1] : 'v1';
+    if (journeys[route]) journey = journeys[route].map(p => `/${route}/renew/${p}`);
+    next();
+});
+
+router.use((req, res, next) => {
+    res.locals.firstQuestion = journey[0];
+    res.locals.questionNumber = journey.indexOf(req.path) + 1;
+    res.locals.totalQuestions = journey.length;
     res.locals.renewalDateExample = moment().add(3, 'weeks').format('D M YYYY');
     res.locals.data.changes = res.locals.data.changes || [];
-    if(req.path === '/declaration'){
-        res.locals.back = questionPages[questionPages.length - 1];
+    if(req.path === `/${route}/declaration`){
+        res.locals.back = journey[journey.length - 1];
     } else {
-        res.locals.back = (questionPages.indexOf(req.path) === 0) ? '/' : questionPages[questionPages.indexOf(req.path) - 1]; 
+        res.locals.back = (journey.indexOf(req.path) === 0) ? '/' : journey[journey.indexOf(req.path) - 1]; 
     }
     next();
 })
 
-router.post('/renew/urn', (req, res, next) => {
+router.post('/*/renew/urn', (req, res, next) => {
     res.locals.errors = '';
     if(res.locals.data['have-urn'] == 'yes' && !res.locals.data.urn.replace(/[\s]/g, '').match(/^1\d{8}$/)) {
         res.locals.errors = 'urn';
@@ -52,7 +46,7 @@ router.post('/renew/urn', (req, res, next) => {
 })
 
 router.post('*', (req, res) => {
-    const nextPage = (questionPages.indexOf(req.path) !== questionPages.length - 1) ? questionPages[questionPages.indexOf(req.path)+1] : '/declaration';
+    const nextPage = (journey.indexOf(req.path) !== journey.length - 1) ? journey[journey.indexOf(req.path)+1] : `/${route}/declaration`;
     res.status(302).redirect(nextPage);
 })
 

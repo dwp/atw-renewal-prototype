@@ -9,3 +9,4 @@ public
 node_modules/*
 .tmuxp.*
 package-lock.json
+app/views/v*
