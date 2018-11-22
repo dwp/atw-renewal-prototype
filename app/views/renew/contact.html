@@ -130,21 +130,21 @@
     name: "contact",
     fieldset: {
       legend: {
-        text: "Who do you want to be contacted about your renewal?",
+        text: "Who should we about your renewal?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }
     },
     items: [{
-        value: "yourself",
-        text: "Yourself",
-        checked: (data['contact'] == 'yourself'),
+        value: "you",
+        text: "You",
+        checked: (data['contact'] == 'you'),
         conditional: {
           html: yourContactDetails
         }
       }, {
         value: "someone_else",
-        text: "Someone else, who can speak for you",
+        text: "Someone else",
         checked: (data['contact'] == 'someone_else'),
         conditional: {
           html: representativeContactDetails
