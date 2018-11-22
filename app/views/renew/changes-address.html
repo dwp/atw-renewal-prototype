@@ -14,18 +14,18 @@
         label: {
           html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
         },
-        id: "address-line-1",
-        name: "address-line-1",
-        value: data['address-line-1']
+        id: "chaange-address-line-1",
+        name: "chaange-address-line-1",
+        value: data['chaange-address-line-1']
       }) }}
 
       {{ govukInput({
         label: {
           html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
         },
-        id: "address-line-2",
-        name: "address-line-2",
-        value: data['address-line-2']
+        id: "chaange-address-line-2",
+        name: "chaange-address-line-2",
+        value: data['chaange-address-line-2']
       }) }}
 
       {{ govukInput({
@@ -33,9 +33,9 @@
           text: "Town or city"
         },
         classes: "govuk-!-width-two-thirds",
-        id: "address-town",
-        name: "address-town",
-        value: data['address-town']
+        id: "chaange-address-town",
+        name: "chaange-address-town",
+        value: data['chaange-address-town']
       }) }}
 
       {{ govukInput({
@@ -43,9 +43,9 @@
           text: "County"
         },
         classes: "govuk-!-width-two-thirds",
-        id: "address-county",
-        name: "address-county",
-        value: data['address-county']
+        id: "chaange-address-county",
+        name: "chaange-address-county",
+        value: data['chaange-address-county']
       }) }}
 
       {{ govukInput({
@@ -53,9 +53,9 @@
           text: "Postcode"
         },
         classes: "govuk-input--width-10",
-        id: "address-postcode",
-        name: "address-postcode",
-        value: (data.postcode or data['address-postcode'])
+        id: "chaange-address-postcode",
+        name: "chaange-address-postcode",
+        value: (data.postcode or data['chaange-address-postcode'])
       }) }}
 
     {% endcall %}

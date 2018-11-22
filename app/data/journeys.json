@@ -2,9 +2,9 @@
     "v1" : [
         "name",
         "date-of-birth",
+        "address",
         "urn",
-        "changes",
-        "contact"
+        "submit"
     ],
     "v2": [
         "name",
@@ -20,6 +20,7 @@
         "changes-job",
         "changes-work-address",
         "contact",
-        "contact-window"
+        "contact-window",
+        "declaration"
     ]
 }

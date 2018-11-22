@@ -46,7 +46,7 @@ router.post('/*/renew/urn', (req, res, next) => {
 })
 
 router.post('*', (req, res) => {
-    const nextPage = (journey.indexOf(req.path) !== journey.length - 1) ? journey[journey.indexOf(req.path)+1] : `/${route}/declaration`;
+    const nextPage = (journey.indexOf(req.path) !== journey.length - 1) ? journey[journey.indexOf(req.path)+1] : `/${route}/thank-you`;
     res.status(302).redirect(nextPage);
 })
 
