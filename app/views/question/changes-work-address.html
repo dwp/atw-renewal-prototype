@@ -1,10 +1,10 @@
-{% extends "layout-question.html" %}
+{% extends "layout/layout-question.html" %}
 
 {% block question %}
   {% set address %}
     {% call govukFieldset({
       legend: {
-        text: "What is your new address?",
+        text: "What is your new work address?",
         classes: "govuk-fieldset__legend--m",
         isPageHeading: true
       }
@@ -14,18 +14,18 @@
         label: {
           html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
         },
-        id: "chaange-address-line-1",
-        name: "chaange-address-line-1",
-        value: data['chaange-address-line-1']
+        id: "work-address-line-1",
+        name: "work-address-line-1",
+        value: data['work-address-line-1']
       }) }}
 
       {{ govukInput({
         label: {
           html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
         },
-        id: "chaange-address-line-2",
-        name: "chaange-address-line-2",
-        value: data['chaange-address-line-2']
+        id: "work-address-line-2",
+        name: "work-address-line-2",
+        value: data['work-address-line-2']
       }) }}
 
       {{ govukInput({
@@ -33,9 +33,9 @@
           text: "Town or city"
         },
         classes: "govuk-!-width-two-thirds",
-        id: "chaange-address-town",
-        name: "chaange-address-town",
-        value: data['chaange-address-town']
+        id: "work-address-town",
+        name: "work-address-town",
+        value: data['work-address-town']
       }) }}
 
       {{ govukInput({
@@ -43,9 +43,9 @@
           text: "County"
         },
         classes: "govuk-!-width-two-thirds",
-        id: "chaange-address-county",
-        name: "chaange-address-county",
-        value: data['chaange-address-county']
+        id: "work-address-county",
+        name: "work-address-county",
+        value: data['work-address-county']
       }) }}
 
       {{ govukInput({
@@ -53,20 +53,20 @@
           text: "Postcode"
         },
         classes: "govuk-input--width-10",
-        id: "chaange-address-postcode",
-        name: "chaange-address-postcode",
-        value: (data.postcode or data['chaange-address-postcode'])
+        id: "work-address-postcode",
+        name: "work-address-postcode",
+        value: data['work-address-postcode']
       }) }}
 
     {% endcall %}
   {% endset -%}
 
   {{ govukRadios({
-    idPrefix: "change-address",
-    name: "change-address",
+    idPrefix: "change-work-address",
+    name: "change-work-address",
     fieldset: {
       legend: {
-        text: "Has your address changed since our last contact with you?",
+        text: "Has your work address changed since our last contact with you?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }
@@ -74,14 +74,14 @@
     items: [{
         value: "yes",
         text: "Yes",
-        checked: (data['change-address'] == 'yes'),
+        checked: (data['change-work-address'] == 'yes'),
         conditional: {
           html: address
         }
       }, {
         value: "no",
         text: "No",
-        checked: (data['change-address'] == 'no')
+        checked: (data['change-work-address'] == 'no')
       }]
   }) }}
 {% endblock %}

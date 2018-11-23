@@ -1,4 +1,4 @@
-{% extends "layout-question.html" %}
+{% extends "layout/layout-question.html" %}
 
 {% block question %}
   {{ govukRadios({
@@ -12,7 +12,7 @@
       }
     },
     hint: {
-      text: "You'll find this on any correspondence we've sent you about your grant, it's 9 number long and starts with a 1"
+      text: "You'll find this on any correspondence we've sent you about your grant, it's 9 numbers long and starts with a 1"
     },
     items: [{
         value: "yes",

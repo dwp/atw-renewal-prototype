@@ -1,12 +1,12 @@
-{% extends "layout-question.html" %}
+{% extends "layout/layout-question.html" %}
 
 {% block question %}
   {{ govukRadios({
-    idPrefix: "change-name",
-    name: "change-name",
+    idPrefix: "change-job",
+    name: "change-job",
     fieldset: {
       legend: {
-        text: "Has your name changed since our last contact with you?",
+        text: "Has your job changed since our last contact with you?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }
@@ -14,23 +14,23 @@
     items: [{
         value: "yes",
         text: "Yes",
-        checked: (data['change-name'] == 'yes'),
+        checked: (data['change-job'] == 'yes'),
         conditional: {
           html: govukInput({
-            id: "old-full-name",
-            name: "old-full-name",
+            id: "new-job",
+            name: "new-job",
             label: {
-              text: "What was your previous full name?",
+              text: "What is your new job title?",
               classes: "govuk-!-font-weight-bold"
             },
             classes: "govuk-!-width-two-thirds",
-            value: data['old-full-name']
+            value: data['new-job']
           })
         }
       }, {
         value: "no",
         text: "No",
-        checked: (data['change-name'] == 'no')
+        checked: (data['change-job'] == 'no')
       }]
   }) }}
 {% endblock %}

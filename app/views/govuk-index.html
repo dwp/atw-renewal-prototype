@@ -1,0 +1,120 @@
+{% extends "layout/layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Home",
+        href: "#"
+      },
+      {
+        text: "Benefits",
+        href: "#"
+      },
+      {
+        text: "Carers and disability benefits"
+      }
+    ]
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Get help at work if you’re disabled or have a health condition (Access to Work)</h1>
+  
+    <h2 class="govuk-body-s">Contents</h2>
+    <ol class="govuk-list govuk-!-font-size-16">
+      <li>— <a class="govuk-link">Overview</a></li>
+      <li>— <a class="govuk-link">Eligibility</a></li>
+      <li>— <a class="govuk-link">What you'll get</a></li>
+      <li>— <a class="govuk-link">How it works</a></li>
+      <li>— <a class="govuk-link">Apply</a></li>
+      <li>— Renew your grant</li>
+    </ol>
+  </div>  
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">Renew your grant </h2>
+
+    <p>You can renew your Access to Work grant up to 12 weeks before the date it ends.</p>
+    
+    <p><a class="govuk-link">Check you’re still eligible</a> before you renew.</p>
+
+    <p>You can renew online or by phone.</p>
+
+    <p>It would help if you could provide:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>your unique reference number (URN): you’ll find this on any correspondence we've sent you about your grant</li>
+    </ul>
+
+    <p>You’ll also need to tell us if any of the following have changed:</p>
+    <ul class="govuk-list govuk-list--bullet govuk-!-margin-bottom-5">
+      <li>your conditions or disabilities</li>
+      <li>how your conditions or disabilities affect you at work</li>
+      <li>how your conditions or disabilities affect your journey to work</li>
+      <li>your personal details</li>
+      <li>your job, role or working hours</li>
+    </ul>
+
+    {{ govukButton({
+      text: "Renew online",
+      href: firstQuestion,
+      classes: "govuk-button--start  govuk-!-margin-bottom-9"
+    }) }}
+    
+
+    <h2 class="govuk-heading-m">Renew by phone</h2>
+    <p>You can renew by calling the Access to Work helpline. Make sure you have all the necessary details with you when you call.</p>
+
+    <div style="padding-left: 15px; border-left: 1px grey solid">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">Access to Work helpline</h3>
+      <p class="govuk-body">
+        Telephone: 0800 121 7479<br />
+        Textphone: 0800 121 7579<br />
+        <a class="govuk-link">NGT text relay</a> (if you cannot hear or speak on the phone): 18001 then<br /> 0800 121 7479<br />
+        Monday to Friday, 8am to 7.30pm<br />
+        <a class="govuk-link">Find out about call charges</a>
+      </p>
+    </div>
+
+    <h3 class="govuk-heading-s">British Sign Language (BSL) video relay service<h3>
+    <p>To use this you must:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>first <a class="govuk-link">check you can use the service</a></li> 
+      <li><a class="govuk-link">go to the video relay service</a></li>
+    </ul>
+    <p>Monday to Friday, 8am to 7.30pm</p>
+
+    <h3 class="govuk-heading-s">Alternative formats</h3>
+    <p>Call the Access to Work number to ask for alternative formats, such as braille, large print or audio CD.</p>
+
+    <h2 class="govuk-heading-m">Complaints</h2>
+    <p>You can contact Access to Work to complain if you are not happy with how your case has been handled.</p>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible" style="border-bottom: 2px solid #005ea5">
+    <h3 class="govuk-heading-s">Related content</h3>
+    <ul class="govuk-list govuk-!-font-size-16">
+      <li><a class="govuk-link">Reasonable adjustments for workers with disabilities or health conditions</a></li>
+      <li><a class="govuk-link">Definition of disability under the Equality Act 2010</a></li>
+      <li><a class="govuk-link">Disability rights</a></li>
+      <li><a class="govuk-link">Looking for work if you're disabled</a></li>
+    </ul>
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <p class="govuk-link govuk-!-font-size-16">Explore the topic</p>
+    <ul class="govuk-list govuk-!-font-size-16">
+      <li><a class="govuk-link govuk-!-font-weight-bold">Carers and disability benefits</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Disability equipment and transport</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Work and disabled people</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Recruiting and hiring</a></li>
+      <li><a class="govuk-link govuk-!-font-weight-bold">Finding a job</a></li>
+      </ul>
+  </div>
+</div>
+{% endblock %}

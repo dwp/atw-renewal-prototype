@@ -1,9 +1,9 @@
-{% extends "layout-question.html" %}
+{% extends "layout/layout-question.html" %}
 
 {% block question %}
   {% call govukFieldset({
       legend: {
-        text: "What is your address?",
+        text: "What is your home address?",
         classes: "govuk-fieldset__legend--xl",
         isPageHeading: true
       }
@@ -13,6 +13,7 @@
         label: {
           html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
         },
+        classes: "govuk-!-width-two-thirds",
         id: "address-line-1",
         name: "address-line-1",
         value: data['address-line-1']
@@ -22,6 +23,7 @@
         label: {
           html: '<span class="govuk-visually-hidden">Building and street line 2 of 2</span>'
         },
+        classes: "govuk-!-width-two-thirds",
         id: "address-line-2",
         name: "address-line-2",
         value: data['address-line-2']
@@ -31,7 +33,7 @@
         label: {
           text: "Town or city"
         },
-        classes: "govuk-!-width-two-thirds",
+        classes: "govuk-!-width-one-half",
         id: "address-town",
         name: "address-town",
         value: data['address-town']
@@ -41,7 +43,7 @@
         label: {
           text: "County"
         },
-        classes: "govuk-!-width-two-thirds",
+        classes: "govuk-!-width-one-half",
         id: "address-county",
         name: "address-county",
         value: data['address-county']
@@ -51,7 +53,7 @@
         label: {
           text: "Postcode"
         },
-        classes: "govuk-input--width-10",
+        classes: "govuk-!-width-one-quarter",
         id: "address-postcode",
         name: "address-postcode",
         value: (data.postcode or data['address-postcode'])

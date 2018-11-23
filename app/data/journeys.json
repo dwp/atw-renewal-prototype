@@ -1,26 +1,30 @@
 {
     "v1" : [
-        "name",
-        "date-of-birth",
-        "address",
-        "urn",
-        "submit"
+        "index",
+        "question/name",
+        "question/date-of-birth",
+        "question/address",
+        "question/urn",
+        "submit",
+        "thank-you"
     ],
     "v2": [
-        "name",
-        "date-of-birth",
-        "postcode",
-        "urn",
-        "renewal-date",
-        "changes-condition",
-        "changes-impact",
-        "changes-travel",
-        "changes-name",
-        "changes-address",
-        "changes-job",
-        "changes-work-address",
-        "contact",
-        "contact-window",
-        "declaration"
+        "start",
+        "question/name",
+        "question/date-of-birth",
+        "question/postcode",
+        "question/urn",
+        "question/renewal-date",
+        "question/changes-condition",
+        "question/changes-impact",
+        "question/changes-travel",
+        "question/changes-name",
+        "question/changes-address",
+        "question/changes-job",
+        "question/changes-work-address",
+        "question/contact",
+        "question/contact-window",
+        "submit",
+        "thank-you"
     ]
 }
