@@ -32,6 +32,54 @@ router.use((req, res, next) => {
     next();
 })
 
+router.post('/*/question/name', (req, res, next) => {
+    res.locals.errors = [];
+    if(!res.locals.data['first-name']) {
+        res.locals.errors.push('first-name');
+    }
+    if(!res.locals.data['last-name']) {
+        res.locals.errors.push('last-name');
+    }
+    if(res.locals.errors.length) {
+        res.render('question/name');
+    } else {
+        next();
+    }
+})
+
+router.post('/*/question/date-of-birth', (req, res, next) => {
+    res.locals.errors = [];
+    if(!res.locals.data['dob-day']) {
+        res.locals.errors.push('dob-day');
+    }
+    if(!res.locals.data['dob-month']) {
+        res.locals.errors.push('dob-month');
+    }
+    if(!res.locals.data['dob-year']) {
+        res.locals.errors.push('dob-year');
+    }
+    if(res.locals.errors.length) {
+        res.render('question/date-of-birth');
+    } else {
+        next();
+    }
+})
+
+router.post('/*/question/address', (req, res, next) => {
+    res.locals.errors = [];
+    if(!res.locals.data['address-line-1']) {
+        res.locals.errors.push('address-line-1');
+    }
+    if(!res.locals.data['address-postcode']) {
+        res.locals.errors.push('address-postcode');
+    }
+    if(res.locals.errors.length) {
+        res.render('question/address');
+    } else {
+        next();
+    }
+})
+
 router.post('/*/question/urn', (req, res, next) => {
     res.locals.errors = '';
     if(res.locals.data['have-urn'] == 'yes' && !res.locals.data.urn.replace(/[\s]/g, '').match(/^1\d{8}$/)) {

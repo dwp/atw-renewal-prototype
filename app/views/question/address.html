@@ -6,14 +6,17 @@
         text: "What is your home address?",
         classes: "govuk-fieldset__legend--xl",
         isPageHeading: true
-      }
+      }      
     }) %}
 
       {{ govukInput({
         label: {
           html: 'Building and street <span class="govuk-visually-hidden">line 1 of 2</span>'
         },
-        classes: "govuk-!-width-two-thirds",
+        classes: "govuk-!-width-two-thirds" + (" govuk-input--error" if errors | includes('address-line-1')),
+        errorMessage: errors | includes('address-line-1') and {
+          text: "Enter the first line of your address"
+        },
         id: "address-line-1",
         name: "address-line-1",
         value: data['address-line-1']
@@ -53,7 +56,10 @@
         label: {
           text: "Postcode"
         },
-        classes: "govuk-!-width-one-quarter",
+        classes: "govuk-!-width-one-quarter" + (" govuk-input--error" if errors | includes('address-postcode')),
+        errorMessage: errors | includes('address-postcode') and {
+          text: "Enter your postcode"
+        },
         id: "address-postcode",
         name: "address-postcode",
         value: (data.postcode or data['address-postcode'])

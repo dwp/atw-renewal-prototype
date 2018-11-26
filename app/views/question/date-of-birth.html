@@ -11,19 +11,22 @@
         classes: "govuk-fieldset__legend--xl"
       }
     },
+    errorMessage: (errors | includes('dob-day') or errors | includes('dob-month') or errors | includes('dob-year')) and {
+      text: "Enter your date of birth"
+    },
     hint: {
       text: "For example, 31 3 1980"
     },
     items: [{
-      classes: "govuk-input--width-2",
+      classes: "govuk-input--width-2" + (" govuk-input--error" if errors | includes('dob-day')),
       name: "day",
       value: data['dob-day']
     }, {
-      classes: "govuk-input--width-2",
+      classes: "govuk-input--width-2" + (" govuk-input--error" if errors | includes('dob-month')),
       name: "month",
       value: data['dob-month']
     }, {
-      classes: "govuk-input--width-4",
+      classes: "govuk-input--width-4" + (" govuk-input--error" if errors | includes('dob-year')),
       name: "year",
       value: data['dob-year']
     }]

@@ -7,6 +7,10 @@ module.exports = function (env) {
    */
   var filters = {}
 
+  filters.includes = (array = [], item) => {
+    return array.indexOf(item) > -1;
+  }
+
   /* ------------------------------------------------------------------
     add your methods to the filters obj below this comment block:
     @example:
