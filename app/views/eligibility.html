@@ -1,0 +1,70 @@
+{% extends "layout/layout.html" %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "/"
+  }) }}
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl govuk-!-margin-top-4 govuk-!-margin-bottom-2">Get help at work if you’re disabled or have a health condition (Access to Work)</h1>
+  </div>  
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+    <h2 class="govuk-heading-m">Eligibility</h2>
+
+    <p>To get help from Access to Work you must:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>have a disability or health condition (physical or mental) that makes it hard for you to do parts of your job or get to and from work</li> 
+      <li>be 16 or over</li> 
+      <li>live in England, Scotland or Wales - there’s a different system in <a href="https://www.nidirect.gov.uk/articles/employment-support-information" class="govuk-link">Northern Ireland</a></li>
+    </ul>
+
+    <p>You also need to have a paid job, or be about to start or return to one. A paid job could include:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>self-employment</li> 
+      <li>an apprenticeship</li> 
+      <li>a work trial or work experience</li> 
+      <li>an internship</li> 
+    </ul>
+
+    <p>You cannot get a grant for voluntary work.</p>
+
+    <p>Your job must be based in England, Scotland or Wales.</p>
+
+    <p>You cannot get Access to Work if you live in the Channel Islands or the Isle of Man.</p>
+    
+    <h3 class="govuk-heading-m">If you get other benefits</h3>
+
+    <p>Certain benefits may affect whether you can get an Access to Work grant.</p>
+
+    <h3 class="govuk-heading-s">Universal Credit, Jobseeker’s Allowance or Income Support</h3>
+
+    <p>You can still get help from Access to Work if you work more than one hour a week.</p>
+
+    <h3 class="govuk-heading-s">Employment and Support Allowance</h3>
+
+    <p>You can only get help from Access to Work if you’re doing ‘permitted work’. It’s permitted work if all of the following apply:</p>
+
+    <ul class="govuk-list govuk-list--bullet">
+      <li>you earn up to £125.50 a week</li> 
+      <li>you work less than 16 hours a week</li> 
+      <li>it’s been agreed with your work coach</li> 
+    </ul>
+
+    <p><a href="/" class="govuk-link">Renew online</a></p>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    
+  </div>
+</div>
+{% endblock %}
