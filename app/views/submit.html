@@ -7,7 +7,7 @@
 {% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
+    <h1 class="govuk-heading-xl">Check your answers before sending your renewal application</h1>
     
     <form action="#" method="post" autocomplete="off" novalidate>
     <dl class="app-check-your-answers app-check-your-answers--short">
@@ -19,7 +19,7 @@
 
       <div class="app-check-your-answers__contents">
         <dt class="app-check-your-answers__question">Date of birth</dt>
-        <dd class="app-check-your-answers__answer">{{ data['dob-day'] }}/{{ data['dob-month'] }}/{{ data['dob-year'] }}</dd>
+        <dd class="app-check-your-answers__answer">{{ dob }}</dd>
         <dd class="app-check-your-answers__change"><a href="question/date-of-birth">Change<span class="govuk-visually-hidden"> date of birth</span></a>
         </dd>
       </div>
@@ -43,7 +43,7 @@
       </div>
       {% endif %}
     </dl>
-    <h2 class="govuk-heading-m">Now send your application</h2>
+    <h2 class="govuk-heading-m">Now send your renewal application</h2>
     <p>By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
     {{ govukButton({
       text: "Accept and send application"

@@ -28,7 +28,7 @@ router.use((req, res, next) => {
     res.locals.totalQuestions = questions.length;
     res.locals.renewalDateExample = moment().add(6, 'weeks').format('D M YYYY');
     res.locals.data.changes = res.locals.data.changes || [];
-    res.locals.back = (journey.indexOf(req.path) === 0) ? '/' : journey[journey.indexOf(req.path) - 1]; 
+    res.locals.back = (journey.indexOf(req.path) === 0) ? '/' : journey[journey.indexOf(req.path) - 1];
     next();
 })
 
@@ -93,6 +93,11 @@ router.post('/*/question/urn', (req, res, next) => {
 router.post('*', (req, res) => {
     const nextPage = journey[journey.indexOf(req.path)+1];
     res.status(302).redirect(nextPage);
+})
+
+router.get('/*/submit', (req, res, next) => {
+    res.locals.dob = moment(`${res.locals.data['dob-year']}-${res.locals.data['dob-month']}-${res.locals.data['dob-day']}`, 'YYYY-MM-DD').format('D MMMM YYYY');
+    next();
 })
 
 module.exports = router
