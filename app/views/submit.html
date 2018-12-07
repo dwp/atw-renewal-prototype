@@ -44,7 +44,17 @@
       {% endif %}
     </dl>
     <h2 class="govuk-heading-m">Now send your renewal application</h2>
-    <p>By submitting this notification you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
+    <p>By submitting this notification you are agreeing that:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the information in this renewal application is correct as far as you know</a></li> 
+      <li>you’ll tell the ATW team about any changes to your condition or circumstances, for example if your place of work changes</li>
+    </ul>
+    
+    {{ govukWarningText({
+      text: "It might be a criminal offence if you knowingly give false information or don’t report anything that would affect your grant, for example if your condition improves or you change where you work.",
+      iconFallbackText: "Warning"
+    }) }}
+
     {{ govukButton({
       text: "Accept and send application"
     }) }}

@@ -6,7 +6,7 @@
     name: "have-urn",
     fieldset: {
       legend: {
-        text: "Do you have your unique reference number (URN)?",
+        text: "Do you have your unique reference number?",
         isPageHeading: true,
         classes: "govuk-fieldset__legend--xl"
       }
@@ -24,7 +24,7 @@
             name: "urn",
             classes: "govuk-input--width-10" + (" govuk-input--error" if errors == 'urn'),
             errorMessage: errors == 'urn' and {
-              text: "The URN must be 9 numbers long and begin with a 1"
+              text: "Enter your unique reference number in the correct format"
             },
             label: {
               text: "Unique reference number",
